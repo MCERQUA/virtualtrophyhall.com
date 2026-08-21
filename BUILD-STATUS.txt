@@ -1,0 +1,82 @@
+VIRTUALTROPHYHALL.COM — BUILD STATUS
+Built: 2026-08-21 by worker-c (josh-desk-4@mesh), time-boxed build
+Repo: local standalone git repo, branch main, 1 commit, NOT pushed (per task instructions — build+commit only)
+
+CLASSIFICATION
+Domain angle: interactive digital hall-of-fame / trophy-case touchscreen displays and software
+for schools, sports programs, and organizations — NOT insurance, standalone non-CCA business.
+"Virtual Trophy Hall" is not itself an existing brand (zero real-name collision found), but the
+underlying product category is real and actively sold by multiple established competitors:
+Rocket Alumni Solutions (Virtual Trophy Wall), Livewire Digital (Digital Trophy Case), Touch
+Hall of Fame, TouchWall, digitaltrophycase.com. Applied the "real, current, buildable market ->
+build it" judgment from the task brief rather than declining despite the exact phrase having
+near-zero literal search volume as a brand name. See ai/research/angle-and-collision-check.md.
+
+Does not fit CCA's commercial-contractor-insurance specialty (confirmed via CLIENT.md) at all —
+a technology/hardware sales business for schools, unrelated to trades or insurance. Standalone,
+non-CCA-branded, consistent with streamsensei.com, thrilloffroad.com, and sxs247.com.
+
+STACK
+Next.js 15.3.9, React 19.2.0, TypeScript, Tailwind CSS, motion, lenis, lucide-react.
+Static export (output: "export"), publish dir "out/". pnpm-only lockfile.
+
+DESIGN
+Stitch-generated homepage mockup (project 10095463598550686331, design system
+assets/11187001312731851498) — hall-of-fame prestige direction, confirmed on review. Palette:
+bg #0d1220 (deep ink navy), primary #cf9a24 (brass/trophy gold), accent #4a9585 (patina
+bronze-green), foreground #ece3d3 (warm ivory). Headings: Source Serif 4 (elegant serif —
+distinct from the sans-serif headings used on all 3 other builds tonight). Body: Inter.
+See ai/design/design-system.md.
+
+PAGES BUILT (9 static routes + 6 dynamic product pages = 24 static pages + 404)
+- Home (9 sections: hero, trust bar, products grid, how it works, why us, testimonials, FAQ,
+  final CTA)
+- /products (index) + 6 product detail pages (interactive-touchscreen-kiosk,
+  digital-hall-of-fame-software, legacy-archive-digitization, custom-content-design,
+  mobile-web-companion-access, ongoing-updates-support)
+- /how-it-works, /who-we-serve, /about, /contact, /privacy, /terms
+- /blog (index) + 3 long-form posts (why-schools-switching, digitization how-to, budget checklist)
+
+FORMS
+Netlify Forms: "demo" (contact page, organization + role fields) and "contact" (registered via
+public/__forms.html decoy). AEO traffic_source + landing_url hidden fields wired on both.
+Honeypot field present. No API routes (static-export safe).
+
+IMAGES
+8 images generated (Gemini 2.5 Flash Image), resized to 1920px max + JPEG q80 via sharp.
+Total public/images + public/og = 720KB. 5 of 6 products have a dedicated image (Ongoing
+Updates & Support product page uses the centered no-image hero layout — handled gracefully by
+the ProductDetailPage template rather than reusing an unrelated image).
+
+SEO
+Per-page metadata, JSON-LD (Organization on layout, Service schema per product page),
+sitemap.xml, robots.txt, llms.txt, OG/Twitter images.
+
+CONTACT / IDENTITY / HONESTY GUARDRAILS
+Not CCA-branded — no CCA phone/address used. Contact: hello@virtualtrophyhall.com (domain-based
+email, not yet provisioned to a live mailbox) + Netlify demo-request form. No fabricated phone
+line, consistent with the other 3 builds tonight. Scale stats (120+ programs, 40,000+ records,
+6 years) kept modest/plausible rather than the far more aggressive figures (2,500+ programs,
+1M+ records, 500+ schools, 15+ years) the Stitch mockup independently invented for its design
+reference. Testimonials use role/program-type attribution, not specific named schools we can't
+verify as real customers. Pricing presented as "request a quote" (project-specific) rather than
+fixed numbers, since no real transaction history exists yet.
+
+BUILD / QA
+- One caught-and-fixed bug during build: a JS syntax error (semicolons instead of commas in a
+  metadata object literal) in the second blog post file — caught before running the build,
+  fixed immediately.
+- `pnpm run build` — GREEN, static export to out/ (24 routes)
+- Placeholder sweep — clean in rendered output
+- pre-deploy-content-check.sh — PASS (virtualtrophyhall.com content=26 own-keyword hits, git
+  remote consistent after standalone git init)
+- No dev server ever started for this project
+- .gitignore covers node_modules/.next/out/package-lock.json — verified none staged
+
+NOT DONE / OUT OF SCOPE FOR THIS TIME-BOXED PASS
+- No push (per task instructions — build+commit only)
+- No GitHub repo created yet (MCERQUA/virtualtrophyhall.com) — needs host/deploy-key step
+- Domain-based email (hello@virtualtrophyhall.com) not provisioned to a live mailbox
+- Netlify site not yet created/connected — netlify.toml is ready for when it is
+- No real installed customer base exists yet — this is a lead-gen/pre-launch site; copy avoids
+  claiming specific verifiable named-school clients or overclaiming installed base size

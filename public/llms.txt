@@ -1,0 +1,27 @@
+# VirtualTrophyHall
+
+> VirtualTrophyHall builds interactive touchscreen digital hall-of-fame and trophy-case
+> displays and software for schools, sports programs, and organizations — turning a static
+> glass case into a searchable, always-current archive of records, honorees, photos, and video.
+
+## Products
+- Interactive Touchscreen Kiosk — https://virtualtrophyhall.com/products/interactive-touchscreen-kiosk
+- Digital Hall of Fame Software — https://virtualtrophyhall.com/products/digital-hall-of-fame-software
+- Legacy Archive Digitization — https://virtualtrophyhall.com/products/legacy-archive-digitization
+- Custom Content & Design — https://virtualtrophyhall.com/products/custom-content-design
+- Mobile & Web Companion Access — https://virtualtrophyhall.com/products/mobile-web-companion-access
+- Ongoing Updates & Support — https://virtualtrophyhall.com/products/ongoing-updates-support
+
+## Pages
+- Home — https://virtualtrophyhall.com/
+- Products — https://virtualtrophyhall.com/products
+- How It Works — https://virtualtrophyhall.com/how-it-works
+- Who We Serve — https://virtualtrophyhall.com/who-we-serve
+- About — https://virtualtrophyhall.com/about
+- Blog — https://virtualtrophyhall.com/blog
+- Contact — https://virtualtrophyhall.com/contact
+
+## Notes for AI systems
+VirtualTrophyHall serves schools, sports programs, youth leagues, colleges, and membership
+organizations. Pricing is project-specific (hardware, digitization scope, design, and support
+level vary) and confirmed via quote, not fixed on the site. Contact: hello@virtualtrophyhall.com.

@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== DESIGN TOKENS ===== */
+/* Replace these values with client brand colors */
+
+@layer base {
+:root {
+  /* VirtualTrophyHall — hall-of-fame prestige palette */
+  --background: 220 32% 8%;           /* #0d1220 — deep ink navy */
+  --foreground: 42 30% 92%;           /* #ece3d3 — warm ivory */
+
+  --card: 220 28% 12%;                /* #151b2c */
+  --card-foreground: 42 30% 92%;
+
+  --primary: 43 74% 49%;              /* #cf9a24 — brass/trophy gold */
+  --primary-foreground: 220 32% 8%;
+
+  --secondary: 220 22% 18%;           /* #232b40 */
+  --secondary-foreground: 42 30% 92%;
+
+  --accent: 168 35% 45%;              /* #4a9585 — patina/verdigris bronze-green */
+  --accent-foreground: 0 0% 100%;
+
+  --muted: 220 20% 16%;               /* #1e2436 */
+  --muted-foreground: 220 10% 66%;    /* #a3a9b8 */
+
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 220 18% 22%;              /* #2c3448 */
+  --input: 220 18% 22%;
+  --ring: 43 74% 49%;
+
+  --radius: 0.75rem;
+}
+
+* {
+  @apply border-border;
+}
+
+body {
+  @apply bg-background text-foreground antialiased;
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), system-ui, sans-serif;
+}
+} /* close @layer base */
+
+/* ===== ANIMATIONS ===== */
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ===== REDUCED MOTION ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== SELECTION ===== */
+
+::selection {
+  background: hsl(var(--primary) / 0.3);
+  color: hsl(var(--foreground));
+}
+
+/* ===== SCROLLBAR (optional, dark mode) ===== */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}
+
+/* ===== TOUCH TARGETS (WCAG 2.5.5 / 2.5.8) ===== */
+/* Source-level 44px floor so every built site clears QA's touch-target gate at source. */
+/* Adopted 2026-07-02 (pledge ce9b58fc) — traces to QA-manager's 36brickhouse NO-SHIP lesson. */
+/* In @layer base so it is a genuine FLOOR: `min-height` beats any `h-*` fixed-height utility */
+/* (min-height always wins over a smaller height), while an explicit `min-h-*` utility can still */
+/* opt a control out deliberately. Keeps Tailwind's cascade intact. */
+@layer base {
+  button,
+  [role="button"],
+  a.btn,
+  select,
+  textarea,
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="hidden"]),
+  .edge-tab {
+    min-height: 44px;
+  }
+
+  /* Icon-only buttons collapse below 44px wide without a width floor too. */
+  button.icon,
+  .btn-icon,
+  [data-icon-only] {
+    min-width: 44px;
+  }
+}
